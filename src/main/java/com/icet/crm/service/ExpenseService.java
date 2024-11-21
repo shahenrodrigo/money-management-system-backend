@@ -1,9 +1,5 @@
 package com.icet.crm.service;
 
-
-
-
-
 import com.icet.crm.dto.ExpenseDTO;
 import com.icet.crm.entity.ExpenseEntity;
 
@@ -13,12 +9,13 @@ public interface ExpenseService {
 
     ExpenseEntity addExpense(ExpenseDTO expenseDTO);
 
-    List<ExpenseEntity> getAllExpenses();
+    List<ExpenseDTO> getExpensesByUserId(Long userId);
 
     ExpenseEntity updateExpense(Integer id, ExpenseDTO expenseDTO);
 
     void deleteExpense(Integer id);
 
     ExpenseEntity getExpenseById(Integer id);
+
 }
 

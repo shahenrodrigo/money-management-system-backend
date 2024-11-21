@@ -11,10 +11,10 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class GraphDTO {
 
     private List<ExpenseEntity> expenseEntityList;
-
     private List<IncomeEntity> incomeEntityList;
 
 }

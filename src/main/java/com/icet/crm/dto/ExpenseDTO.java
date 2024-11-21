@@ -18,5 +18,6 @@ public class ExpenseDTO {
     private String description;
     private double amount;
     private LocalDate date;
+    private Long userId;
 }
 

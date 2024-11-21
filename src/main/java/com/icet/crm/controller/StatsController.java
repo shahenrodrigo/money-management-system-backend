@@ -1,29 +1,27 @@
 package com.icet.crm.controller;
 
 import com.icet.crm.dto.GraphDTO;
-import com.icet.crm.service.stats.StatsService;
+import com.icet.crm.dto.StatsDTO;
+import com.icet.crm.service.impl.StatsService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/stats")
 @RequiredArgsConstructor
 @CrossOrigin
+
 public class StatsController {
 
     private final StatsService statsService;
 
-    @GetMapping("/chart")
-    public ResponseEntity<GraphDTO> getChartData(){
-        return ResponseEntity.ok(statsService.getChartData());
+    @GetMapping("/chart/{userId}")
+    public GraphDTO getChartData(@PathVariable Long userId) {
+        return statsService.getChartData(userId); // Pass userId for filtering data
     }
 
-    @GetMapping
-    public ResponseEntity<?> getStats(){
-        return ResponseEntity.ok(statsService.getStats());
+    @GetMapping("/{userId}")
+    public StatsDTO getStats(@PathVariable Long userId) {
+        return statsService.getStats(userId); // Pass userId for filtering data
     }
 }

@@ -1,7 +1,6 @@
 package com.icet.crm.service;
 
 import com.icet.crm.dto.IncomeDTO;
-import com.icet.crm.entity.ExpenseEntity;
 import com.icet.crm.entity.IncomeEntity;
 
 import java.util.List;
@@ -10,7 +9,7 @@ public interface IncomeService {
 
     IncomeEntity addIncome(IncomeDTO incomeDTO);
 
-    List<IncomeEntity> getAllIncomes();
+    List<IncomeDTO> getIncomeByUserId(Long userId);
 
     IncomeEntity updateIncome(Integer id, IncomeDTO incomeDTO);
 

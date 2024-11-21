@@ -4,7 +4,6 @@ import com.icet.crm.dto.ExpenseDTO;
 import com.icet.crm.entity.ExpenseEntity;
 import com.icet.crm.service.ExpenseService;
 import lombok.RequiredArgsConstructor;
-;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,9 +22,9 @@ public class ExpenseController {
         return expenseService.addExpense(expenseDTO);
     }
 
-    @GetMapping("/all")
-    public List<ExpenseEntity> getAllExpenses() {
-        return expenseService.getAllExpenses();
+    @GetMapping("/get-all/{userId}")
+    public List<ExpenseDTO> getExpensesByUserId(@PathVariable Long userId) {
+        return expenseService.getExpensesByUserId(userId);
     }
 
     @GetMapping("/{id}")

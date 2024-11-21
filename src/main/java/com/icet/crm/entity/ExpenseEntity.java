@@ -22,5 +22,9 @@ public class ExpenseEntity {
     private String description;
     private double amount;
     private LocalDate date;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
 }
 

@@ -1,10 +1,7 @@
 package com.icet.crm.entity;
 
 import com.icet.crm.dto.IncomeDTO;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,9 +24,13 @@ public class IncomeEntity {
     private double amount;
     private LocalDate date;
 
-    public IncomeDTO getIncomeDto(){
-        IncomeDTO incomeDTO = new IncomeDTO();
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
 
+    public IncomeDTO getIncomeDto(){
+
+        IncomeDTO incomeDTO = new IncomeDTO();
         incomeDTO.setId(id);
         incomeDTO.setTitle(title);
         incomeDTO.setAmount(amount);
